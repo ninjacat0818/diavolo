@@ -1,0 +1,64 @@
+name: Example dialogue
+actor:
+  num: 2
+args:
+  var1: integer
+  var2: string
+  var3: mut boolean
+  actors: array
+nodes:
+  main:
+  - owner: 0
+    message:
+      en: Hello ${{ actors[0].name }}.
+      ja:
+        text: こんにちは ${{ var2 }}。
+        font:
+          family: "Arial"
+          weight: "Bold"
+          size: 32
+          color: "#ff0000"
+    options:
+      emotion: happy
+      speed: 1
+      listeners: [1]
+  - id: choice_a
+    choice:
+      foo:
+        en: Foo Message
+      bar:
+        en: Bar Message
+    message:
+      owner: 0
+      texts:
+        en: Please select an option:
+        ja: オプションを選択してください：
+    options:
+      # mode: single | multiple
+      default: bar
+      timeout: 10.0
+  - call: ${{ lines.prev.selected == "foo" && "foo" || "bar" }}
+  - confirm:
+      en: Is this okay?
+      ja: これでよろしいですか？
+    options:
+      response:
+        yes:
+          en: Yes
+          ja: はい
+        no:
+          en: No
+          ja: いいえ
+  - uses: other_dialogue.yml
+    with:
+  foo:
+  - message:
+      en: Foo is selected.
+      ja: Fooが選択されました。
+    owner: 0
+  - eval: var3 = true
+  bar:
+  - message:
+      en: Bar is selected.
+      ja: Barが選択されました。
+    owner: 0

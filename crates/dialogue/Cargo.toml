@@ -1,0 +1,15 @@
+[package]
+name = "diavolo-dialogue"
+version.workspace = true
+edition.workspace = true
+publish = true
+repository.workspace = true
+
+[dependencies]
+nanoid = "0.4.0"
+thiserror.workspace = true
+indexmap = { workspace = true, features = ["serde"] }
+serde.workspace = true
+serde_json = { workspace = true, features = ["preserve_order"] }
+serde_yaml = "0.9.34"
+language-tags = { workspace = true, features = ["serde"] }

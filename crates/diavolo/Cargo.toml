@@ -1,0 +1,18 @@
+[package]
+name = "diavolo"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+repository.workspace = true
+
+[dependencies]
+dialogue = { path = "../dialogue", package = "diavolo-dialogue" }
+boa_engine = { version = "0.21.0", features = ["js"] }
+jsonschema = { version = "0.33.0", default-features = false }
+tracing.workspace = true
+serde_json.workspace = true
+indexmap.workspace = true
+language-tags.workspace = true
+
+[dev-dependencies]
+tracing-subscriber.workspace = true

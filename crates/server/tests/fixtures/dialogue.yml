@@ -1,0 +1,4 @@
+nodes:
+  main:
+    - message: line1 text
+    - message: line2 text
