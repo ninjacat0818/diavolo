@@ -1,0 +1,16 @@
+[package]
+name = "diavolo"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+repository.workspace = true
+
+[dependencies]
+isolang.workspace = true
+dialogue = { path = "../diavolo-dialogue", package = "diavolo-dialogue" }
+tracing = "0.1.41"
+rhai = "1.23.4"
+
+[dev-dependencies]
+crossterm = "0.29.0"
+tracing-subscriber = "0.3.20"
