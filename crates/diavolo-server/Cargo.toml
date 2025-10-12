@@ -1,0 +1,23 @@
+[package]
+name = "diavolo-server"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+repository.workspace = true
+
+[dependencies]
+axum = { version = "0.8.7", features = ["ws"] }
+axum-extra = { version = "0.12.2", features = ["typed-header"] }
+diavolo = { path = "../diavolo" }
+futures-util = { version = "0.3.31", default-features = false }
+json-patch = "4.1.0"
+tower-http = { version = "0.6.7", features = ["trace"] }
+tokio = "1.48.0"
+tracing.workspace = true
+serde_json.workspace = true
+serde.workspace = true
+url = "2.5.7"
+
+[dev-dependencies]
+axum-test = { version = "18.4.1", features = ["ws"] }
+tracing-subscriber.workspace = true
